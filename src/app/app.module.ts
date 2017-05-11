@@ -46,6 +46,10 @@ import { AddMenuGroupOptionComponent } from './menu-overview/add-menu-group-opti
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { Ng2CloudinaryModule } from 'ng2-cloudinary';
+import { FileUploadModule } from 'ng2-file-upload';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -80,7 +84,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CovalentCoreModule.forRoot(),
     appRoutes,
     RouterModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    BrowserModule,
+    Ng2CloudinaryModule,
+    FileUploadModule
 
   ],
   providers: [

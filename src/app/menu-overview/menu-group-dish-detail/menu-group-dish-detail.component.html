@@ -1,72 +1,37 @@
-<p>
-  menu-group-dish-detail works!
-</p>
 
 
-<!-- <input type="file" ng2FileSelect [uploader]="uploader"/> -->
-
-
-
-
+<div class="button-row">
+	<input md-raised-button type="file" ng2FileSelect [uploader]="uploader" accept="image/*;capture=camera">
+    <button primary md-raised-button  (click)="upload()"> Upload </button>
+</div>
+<cl-image [public-id]="imageId" [cloud-name]="uploader.cloudName" width="300" height="300"></cl-image>
 
 
 
+  <div flex>
+    <div layout="row">
 
-<input type="file" ng2FileSelect [uploader]="uploader" accept="image/*;capture=camera">
+      <div flex="75">
+        <md-card>
 
-<button (click)="upload()">Upload</button>
-
-<cl-image [public-id]="imageId" [cloud-name]="uploader.cloudName"></cl-image>
-
-
-
-
-
-
-
-
-
-
-<!-- // Edit menu
- <div class="card">
-      <img src="http://drewcodespot.com/wp-content/uploads/2015/02/uploadbtn.jpg" id="img-preview" />
-      <label class="file-upload-container" for="file-upload">
-        <input id="file-upload" type="file" style="display:none;">
-        Select an Image
-      </label>
+          <md-card-title>Reviews</md-card-title>
+          <md-card-content>
+            <!-- list with Icons-->
+            <div layout="column" layout-align="start stretch">
+              <md-nav-list>
+                <template let-item let-last="last" ngFor [ngForOf]="data">
+                  <a md-list-item layout-align="row" [routerLink]="['']" (click)="doRoute(item.sku)">
+                    <md-icon md-list-icon>account_box</md-icon>
+                    <h3 md-line> {{item.review}} </h3>
+                    <p md-line> ★ {{item.rating}} </p>
+                  </a>
+                  <md-divider *ngIf="!last" md-inset></md-divider>
+                </template>
+              </md-nav-list>
+            </div>
+          </md-card-content>
+        </md-card>
+      </div>
     </div>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="/public/scripts/app.js"></script>
+  </div>
 
-<script type="text/javascript">
-var imgPreview= document.getElementById("img-preview");
-var fileUpload= document.getElementById("file-upload");
-
-var curl= "	https://api.cloudinary.com/v1_1/nishit/upload";
-var cpreset= "kkzbmykl";
-
-fileUpload.addEventListener('change', function(event){
-	console.log(event);
-	var file= event.target.files[0];
-	var formData=new FormData;
-	formData.append('file', file);
-	formData.append('upload_preset', cpreset);
-
-	axios({
-		url: curl,
-		method: 'POST',
-		headers:{
-			'Content-Type': 'application/xwww-form-urlencoded'
-		},
-		data: formData
-	}).then(function(res){
-		console.log(res);
-		imgPreview.src= res.data.secure_url;
-
-	}).catch(function(err){
-		console.error(err);
-	});
-});
-</script>
-
- --> 

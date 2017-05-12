@@ -35,6 +35,9 @@ export interface MenuGroupItem {
   menu_item_calories: number;
   menu_item_heat_index: number;
 
+  image_url: string;
+  review: string;
+  rating: number;
 }
 export interface MenuGroupOption {
   id: number;
